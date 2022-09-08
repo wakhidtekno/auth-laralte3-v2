@@ -9,7 +9,7 @@
 
   {{-- STYLE --}}
   @stack('before-style')
-  @include('includes.style')
+  @include('includes._style')
   @stack('after-style')
 
 </head>
@@ -17,10 +17,10 @@
 <!-- Site wrapper -->
 <div class="wrapper">
   {{-- NAVBAR --}}
-    @include('includes.navbar')
+    @include('includes._navbar')
 
   {{-- SIDEBAR --}}
-    @include('includes.sidebar')
+    @include('includes._sidebar')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -83,7 +83,7 @@
 
 {{-- SCRIPT --}}
 @stack('before-script')
-@include('includes.script')
+@include('includes._script')
 @stack('after-script')
 </body>
 </html>
