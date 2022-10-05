@@ -31,11 +31,6 @@
             <a href="{{route('edit-password')}}" class="dropdown-item">
               <i class="fas fa-lock mr-2"></i> Ubah Password
             </a>
-            <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item" data-toggle="modal" data-target="#logoutModal">
-                <i class="fas fa-sign-out-alt mr-2"></i> Keluar
-              </a>
-
           </div>
       </li>
     </ul>

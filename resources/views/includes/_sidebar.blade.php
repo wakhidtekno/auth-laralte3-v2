@@ -1,7 +1,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="#" class="brand-link">
         <i class="fa fa-archive fa-2x brand-image elevation-3" aria-hidden="true"></i>
       <span class="brand-text font-weight-light">Laravel</span>
     </a>
@@ -45,6 +45,17 @@
               </li>
             </ul>
           </li>
+
+          <li class="nav-item">
+            <a href="#" data-toggle="modal" data-target="#logoutModal" class="nav-link">
+              <i class="fas fa-sign-out-alt nav-icon"></i>
+              <p>
+                Keluar
+              </p>
+            </a>
+          </li>
+
+        </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>

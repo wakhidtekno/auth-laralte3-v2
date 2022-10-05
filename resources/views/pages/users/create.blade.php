@@ -59,10 +59,10 @@
                             @enderror
                         </div>
                         <div class="form-group">
-                          <label for="foto">File input</label>
+                          <label for="foto">Foto (opsional)</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input @error('foto') is-invalid @enderror" id="foto" name="foto">
+                              <input type="file" class="custom-file-input @error('foto') is-invalid @enderror" id="foto" name="foto" accept="image/*">
                               <label class="custom-file-label" for="foto">Pilih File</label>
                             </div>
                         </div>
