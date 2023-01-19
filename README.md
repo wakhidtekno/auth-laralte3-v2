@@ -7,3 +7,6 @@
 4. Edit Profil (ada foto profil)
 5. Multi user
 6. kelola user
+
+#Server Requirements
+PHP >= 7.3
