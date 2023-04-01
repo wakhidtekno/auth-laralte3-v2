@@ -4,10 +4,13 @@ namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Spatie\Activitylog\LogOptions;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    use LogsActivity;
     use Notifiable;
 
     /**
@@ -37,6 +40,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
     public function setPasswordAttribute($value)
     {
         $this->attributes['password'] = bcrypt($value);
@@ -45,6 +49,12 @@ class User extends Authenticatable
     public function getFotoAttribute($value)
     {
         return url('storage/'.$value);
+    }
+
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()->useLogName('user')->logFillable('true')->logOnlyDirty('true');
+
     }
 
 }

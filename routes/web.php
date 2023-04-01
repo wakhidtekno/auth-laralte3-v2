@@ -47,3 +47,6 @@ Route::delete('/users/{id}','UserController@destroy')->middleware('auth')->name(
 Route::get('/instansi','InstansiController@index')->name('instansi.index');
 Route::get('/instansi/{id}/edit','InstansiController@edit')->middleware('auth')->name('instansi.edit');
 Route::put('/instansi/{id}','InstansiController@update')->middleware('auth')->name('instansi.update');
+
+
+Route::get('/log','ActivityLogController@index')->name('activitylog.index');

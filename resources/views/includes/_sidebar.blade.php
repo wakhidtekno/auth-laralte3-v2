@@ -47,6 +47,15 @@
           </li>
 
           <li class="nav-item">
+            <a href="{{route('activitylog.index')}}" class="nav-link">
+              <i class="fas fa-history nav-icon"></i>
+              <p>
+                Log
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
             <a href="#" data-toggle="modal" data-target="#logoutModal" class="nav-link">
               <i class="fas fa-sign-out-alt nav-icon"></i>
               <p>
