@@ -94,43 +94,5 @@
       });
     });
   </script>
-
-<script>
-    jQuery(document).ready(function($){
-        $('#userModal').on('show.bs.modal', function(e){
-            var button = $(e.relatedTarget);
-            var modal = $(this);
-
-            modal.find('.modal-body').load(button.data("remote"));
-            modal.find('.modal-title').html(button.data("title"));
-        });
-    });
-</script>
-@include('sweetalert::alert')
-<script>
-    $('.btn-hapus').on('click', function(e){
-        e.preventDefault();
-        let id = $(this).data('id');
-        let form = $('#form-hapus-user-'+id);
-        let nama = $(this).data('nama');
-
-        Swal.fire({
-        title: 'Apakah anda yakin?',
-        text: nama +' akan dihapus',
-        icon: 'warning',
-        showCancelButton: true,
-        cancelButtonColor: '#5bc0de',
-        confirmButtonColor: '#d9534f ',
-        confirmButtonText: 'Ya, hapus!',
-        cancelButtonText: 'Batal',
-        reverseButtons: true,
-        }).then((result) => {
-            if (result.value) {
-                form.submit();
-            }
-        })
-
-    });
-</script>
 @endpush
 
