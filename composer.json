@@ -14,7 +14,8 @@
         "laravel/framework": "^9.0",
         "laravel/tinker": "^2.0",
         "realrashid/sweet-alert": "^5.1.0",
-        "spatie/laravel-activitylog": "^4.7"
+        "spatie/laravel-activitylog": "^4.7",
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^1.0",

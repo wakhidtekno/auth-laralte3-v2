@@ -15,32 +15,13 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Field</th>
-                                <th>Action</th>
                                 <th>Tanggal</th>
                                 <th>User</th>
+                                <th>Log Name</th>
+                                <th>Action</th>
                                 <th>Properties</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @forelse ($items as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->log_name }}</td>
-                                    <td>{{ $item->event }}</td>
-                                    <td>{{ $item->created_at }}</td>
-                                    @if ($item->causer_id == null)
-                                        <td>System</td>
-                                    @else
-                                        <td>{{ $item->user->nama }}</td>
-                                    @endif
-                                    <td>{{ $item->properties }}</td>
-
-                                </tr>
-                            @empty
-
-                            @endforelse
-                        </tbody>
                     </table>
                 </div>
             </div>
@@ -81,18 +62,40 @@
 <script src="{{asset('assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{asset('assets/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-<!-- page script -->
-<script>
-    $(function () {
-      $('#dataTable').DataTable({
-        "responsive": true,
-        "autoWidth": false,
-        "language":{
-        "url" : "/assets/plugins/datatables/indonesia.json",
-        "sEmptyTable" : "Tidads"
-         },
-      });
+  <script>
+    $(function() {
+        $('#dataTable').DataTable({
+            processing: true,
+            serverSide: true,
+            order: [[1, 'desc']],
+            ajax: '{!! route('activitylog.index') !!}', // memanggil route yang menampilkan data json
+            columns: [// mengambil & menampilkan kolom sesuai tabel database
+                {
+                    data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false
+                },
+                {
+                    data: 'created_at',
+                    name: 'created_at'
+                },
+                {
+                    data: 'user.username',
+                    name: 'user.username'
+                },
+                {
+                    data: 'log_name',
+                    name: 'log_name'
+                },
+                {
+                    data: 'event',
+                    name: 'event'
+                },
+                {
+                    data: 'properties',
+                    name: 'properties'
+                },
+            ]
+        });
     });
-  </script>
+</script>
 @endpush
 

@@ -18,19 +18,5 @@ class UserTableSeeder extends Seeder
             'nama' => 'super admin',
             'level' => 'superadmin',
         ]);
-
-        User::create([
-            'username' => 'admin',
-            'password' => '123456',
-            'nama' => 'admin',
-            'level' => 'admin',
-        ]);
-
-        User::create([
-            'username' => 'user',
-            'password' => '123456',
-            'nama' => 'user',
-            'level' => 'user',
-        ]);
     }
 }
