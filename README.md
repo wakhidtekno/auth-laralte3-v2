@@ -7,6 +7,7 @@
 4. Edit Profil (ada foto profil)
 5. Multi user
 6. kelola user
+7. User Log Acivity
 
 ## Server Requirements
 PHP >= 8.0.2
