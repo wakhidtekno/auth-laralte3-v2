@@ -21,11 +21,12 @@
                                 <th>No.</th>
                                 <th>Username</th>
                                 <th>Nama</th>
+                                <th>Created_at</th>
                                 <th>Level</th>
-                                <th></th>
+                                <th>Action</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        {{-- <tbody>
                             @forelse ($items as $item)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
@@ -60,7 +61,7 @@
                                 </tr>
                             @empty
 
-                            @endforelse
+                            @endforelse --}}
                         </tbody>
                     </table>
                 </div>
@@ -104,15 +105,42 @@
 <script src="{{asset('assets/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
 <!-- page script -->
 <script>
-    $(function () {
-      $('#dataTable').DataTable({
-        "responsive": true,
-        "autoWidth": false,
-        "language":{
-        "url" : "/assets/plugins/datatables/indonesia.json",
-        "sEmptyTable" : "Tidads"
-         },
-      });
+    $(function() {
+        $('#dataTable').DataTable({
+            processing: true,
+            serverSide: true,
+            autoWidth: false,
+            responsive: true,
+            order: [[1, 'desc']],
+            ajax: '{!! route('users.index') !!}', // memanggil route yang menampilkan data json
+            columns: [// mengambil & menampilkan kolom sesuai tabel database
+                {
+                    data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false
+                },
+                {
+                    data: 'username',
+                    name: 'username'
+                },
+                {
+                    data: 'nama',
+                    name: 'nama'
+                },
+                {
+                    data: 'created_at',
+                    name: 'created_at'
+                },
+                {
+                    data: 'level',
+                    name: 'level'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
+            ]
+        });
     });
   </script>
 
@@ -125,32 +153,6 @@
             modal.find('.modal-body').load(button.data("remote"));
             modal.find('.modal-title').html(button.data("title"));
         });
-    });
-</script>
-@include('sweetalert::alert')
-<script>
-    $('.btn-hapus').on('click', function(e){
-        e.preventDefault();
-        let id = $(this).data('id');
-        let form = $('#form-hapus-user-'+id);
-        let nama = $(this).data('nama');
-
-        Swal.fire({
-        title: 'Apakah anda yakin?',
-        text: nama +' akan dihapus',
-        icon: 'warning',
-        showCancelButton: true,
-        cancelButtonColor: '#5bc0de',
-        confirmButtonColor: '#d9534f ',
-        confirmButtonText: 'Ya, hapus!',
-        cancelButtonText: 'Batal',
-        reverseButtons: true,
-        }).then((result) => {
-            if (result.value) {
-                form.submit();
-            }
-        })
-
     });
 </script>
 @endpush

@@ -50,6 +50,10 @@ class User extends Authenticatable
     {
         return url('storage/'.$value);
     }
+    public function getCreatedAtAttribute($value)
+    {
+        return date("d-m-Y H:i:s", strtotime($value));
+    }
 
     public function getActivitylogOptions(): LogOptions
     {

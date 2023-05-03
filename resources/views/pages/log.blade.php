@@ -67,7 +67,9 @@
         $('#dataTable').DataTable({
             processing: true,
             serverSide: true,
-            order: [[1, 'desc']],
+            responsive: true,
+            autoWidth: false,
+            order: [[2, 'desc']],
             ajax: '{!! route('activitylog.index') !!}', // memanggil route yang menampilkan data json
             columns: [// mengambil & menampilkan kolom sesuai tabel database
                 {
@@ -91,7 +93,8 @@
                 },
                 {
                     data: 'properties',
-                    name: 'properties'
+                    name: 'properties',
+                    orderable: false
                 },
             ]
         });

@@ -5,14 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use RealRashid\SweetAlert\Facades\Alert;
+use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\File;
 use App\User;
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request, User $user)
     {
-        $items = User::where('level','!=','superadmin')->get();
-        return view('pages.users.index')->with(['items' => $items]);
+        if ($request->ajax()) {
+            return DataTables::of(User::where('level','!=','superadmin')->get())
+            ->addIndexColumn()
+            ->addColumn('action',function(User $user){
+                return view('pages.users.action')->with(['user' => $user]);
+            })
+            ->toJson();
+        }
+        return view('pages.users.index');
     }
 
     public function create()
