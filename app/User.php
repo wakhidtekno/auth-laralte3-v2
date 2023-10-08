@@ -7,11 +7,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Spatie\Activitylog\LogOptions;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use LogsActivity;
     use Notifiable;
+    use SoftDeletes;
 
     /**
      * The attributes that are mass assignable.

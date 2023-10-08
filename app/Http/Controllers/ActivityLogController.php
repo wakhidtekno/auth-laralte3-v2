@@ -11,6 +11,7 @@ class ActivityLogController extends Controller
 
     public function index(Request $request)
     {
+        $this->authorize('isSuperAdmin', ActivityLog::class);
         if ($request->ajax()) {
             return DataTables::of(ActivityLog::with('user')->where('causer_id','!=', null)->orderBy('id','DESC')->get())->addIndexColumn()->toJson();
         }

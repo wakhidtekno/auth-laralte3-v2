@@ -36,12 +36,18 @@ class UserRequest extends FormRequest
                 'password' => 'required|min:6|same:konfirmasi_password',
                 'konfirmasi_password' => 'required|min:6|same:password',
             ];
+            if (auth()->user()->level == 'admin') {
+                unset($rules['level']);
+            }
         }
 
         if ($this->getMethod() == 'PUT') {
             $rules += [
                 'username' => "required|alpha_dash|unique:users,username,{$this->id}",
             ];
+            if (auth()->user()->level == 'admin') {
+                unset($rules['level']);
+            }
         }
 
         return $rules;

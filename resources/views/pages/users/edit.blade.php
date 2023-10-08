@@ -34,6 +34,7 @@
                             </div>
                             @enderror
                         </div>
+                        @if (auth()->user()->level == 'superadmin')
                         <div class="form-group">
                             <label>Level<span class="text-danger">*</span></label>
                             <select class="form-control @error('level') is-invalid @enderror" name="level">
@@ -41,6 +42,7 @@
                                 <option value="user" {{(old('level') ?? $item->level) == 'user' ? 'selected' : ''}}>User</option>
                             </select>
                         </div>
+                        @endif
                         <div class="form-group">
                             <label for="username">Foto</label>
                             <div class="mb-2">

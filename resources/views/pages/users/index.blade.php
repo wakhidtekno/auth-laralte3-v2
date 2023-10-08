@@ -26,42 +26,6 @@
                                 <th>Action</th>
                             </tr>
                         </thead>
-                        {{-- <tbody>
-                            @forelse ($items as $item)
-                                <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->username }}</td>
-                                    <td>{{ $item->nama }}</td>
-                                    <td>{{ $item->level }}</td>
-                                    <td class="project-actions text-right">
-                                        <a class="btn btn-info btn-sm mb-1" data-remote ="{{route('users.show', $item->id)}}" href="#userModal" data-toggle="modal" data-target="#userModal" data-title="Detail User">
-                                            <i class="fas fa-eye">
-                                            </i>
-                                            Detail
-                                        </a>
-                                        <a class="btn btn-primary btn-sm mb-1" href="{{route('users.edit', $item->id)}}">
-                                            <i class="fas fa-pencil-alt">
-                                            </i>
-                                            Ubah
-                                        </a>
-                                        <a href="{{route('users.reset-password', $item->id)}}" class="btn btn-warning btn-sm mb-1">
-                                            <i class="fa fa-key"></i>
-                                            Reset password
-                                        </a>
-                                        <form action="{{route('users.destroy', $item->id)}}" method="post" class="d-inline" id="{{'form-hapus-user-'.$item->id}}">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button class="btn btn-danger btn-sm btn-hapus" data-id="{{$item->id}}" data-nama="{{$item->nama}}">
-                                                <i class="fas fa-trash">
-                                                </i>
-                                                Hapus
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                            @empty
-
-                            @endforelse --}}
                         </tbody>
                     </table>
                 </div>

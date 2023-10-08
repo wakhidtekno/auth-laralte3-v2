@@ -10,7 +10,7 @@
     <div class="sidebar">
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column nav-child-indent" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
@@ -22,7 +22,7 @@
             </a>
           </li>
 
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link">
               <i class="nav-icon fa fa-cog"></i>
               <p>
@@ -37,15 +37,17 @@
                   <p>Users</p>
                 </a>
               </li>
+              @if (Auth::user()->level === 'superadmin')
               <li class="nav-item">
                 <a href="{{route('instansi.index')}}" class="nav-link">
                   <i class="fas fa-building nav-icon"></i>
                   <p>Instansi</p>
                 </a>
               </li>
+              @endif
             </ul>
           </li>
-
+          @if (Auth::user()->level === 'superadmin')
           <li class="nav-item">
             <a href="{{route('activitylog.index')}}" class="nav-link">
               <i class="fas fa-history nav-icon"></i>
@@ -54,6 +56,7 @@
               </p>
             </a>
           </li>
+          @endif
 
           <li class="nav-item">
             <a href="#" data-toggle="modal" data-target="#logoutModal" class="nav-link">

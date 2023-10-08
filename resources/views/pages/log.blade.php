@@ -1,6 +1,6 @@
 @extends('layouts.default')
-@section('title','Acitivity Log')
-@section('content-header-title','Activity Log')
+@section('title','User Log Activity')
+@section('content-header-title','User Log Activity')
 
 @section('content')
 <div class="container-fluid">
@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Activity Log</h3>
+                    <h3 class="card-title">User Log Activity</h3>
                 </div>
                 <div class="card-body">
                     <table id="dataTable" class="table table-striped projects">
