@@ -1,7 +1,7 @@
 # Sistem login dan register Laravel dengan template AdminLTE 3
 
 ## Teknologi yang digunakan
-1. Laravel versi 11
+1. Laravel versi 12
 2. Yajra DataTable Serverside
 3. SweetAlert
 
