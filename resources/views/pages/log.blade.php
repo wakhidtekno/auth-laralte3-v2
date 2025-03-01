@@ -69,7 +69,7 @@
             serverSide: true,
             responsive: true,
             autoWidth: false,
-            order: [[2, 'desc']],
+            //order: [[2, 'desc']],
             ajax: '{!! route('activitylog.index') !!}', // memanggil route yang menampilkan data json
             columns: [// mengambil & menampilkan kolom sesuai tabel database
                 {
@@ -77,19 +77,23 @@
                 },
                 {
                     data: 'created_at',
-                    name: 'created_at'
+                    name: 'created_at',
+                    orderable: false
                 },
                 {
                     data: 'user.username',
-                    name: 'user.username'
+                    name: 'user.username',
+                    orderable: false
                 },
                 {
                     data: 'log_name',
-                    name: 'log_name'
+                    name: 'log_name',
+                    orderable: false
                 },
                 {
                     data: 'event',
-                    name: 'event'
+                    name: 'event',
+                    orderable: false
                 },
                 {
                     data: 'properties',
